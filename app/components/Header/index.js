@@ -1,19 +1,27 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-
+import styled from 'styled-components';
 import A from './A';
 import Img from './Img';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
+import logo from './cnodejs_light.svg';
 import messages from './messages';
+
+const HeaderWrapper = styled.div`
+display: flex;
+min-height: 100%;
+padding: 0 16px;
+flex-direction: column;
+background: #444;
+`;
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
+      <HeaderWrapper>
+        <A href="/">
+          <Img src={logo} alt="cnode - Logo" />
         </A>
         <NavBar>
           <HeaderLink to="/">
@@ -23,7 +31,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
             <FormattedMessage {...messages.features} />
           </HeaderLink>
         </NavBar>
-      </div>
+      </HeaderWrapper>
     );
   }
 }
